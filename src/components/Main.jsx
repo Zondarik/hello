@@ -8,7 +8,10 @@ function Main() {
 
     return (
         <div>
-            {time}
+            <h1>
+                {time}
+            </h1>
+            
         </div>
     )
 }
