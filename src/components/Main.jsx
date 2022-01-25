@@ -1,11 +1,18 @@
 import moment from "moment";
+import { useState } from "react";
 
 function Main() {
 
-    const time = moment().format("HH:mm"); 
-    const date = moment().format("DD.MM.YYYY"); 
-    console.log(time);
-    
+    const [curtrentMoment, changeCurrentMoment] = useState(moment())
+
+    const time = curtrentMoment.format("HH:mm:ss"); 
+    const date = curtrentMoment.format("DD.MM.YYYY");
+
+    function updateMoment() {
+        changeCurrentMoment(moment())
+    }
+
+    setTimeout(updateMoment, 1000);
 
     return (
         <div className="center border">
