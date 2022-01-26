@@ -12,7 +12,7 @@ function Main() {
         changeCurrentMoment(moment())
     }
 
-    setTimeout(updateMoment, 1000);
+    setTimeout(updateMoment, 100);
 
     return (
         <div className="center border">
