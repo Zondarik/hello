@@ -1,24 +1,13 @@
-import moment from "moment";
-import { useState } from "react";
+import Time from "./Time";
+import Yahoo from "./Yahoo";
 
 function Main() {
-
-    const [curtrentMoment, changeCurrentMoment] = useState(moment())
-
-    const time = curtrentMoment.format("HH:mm:ss"); 
-    const date = curtrentMoment.format("DD.MM.YYYY");
-
-    function updateMoment() {
-        changeCurrentMoment(moment())
-    }
-
-    setTimeout(updateMoment, 100);
-
     return (
-        <div className="center border">
-            <h1>{time}</h1>
-            <h1>{date}</h1>
+        <div>
+            <Time/>
+            <Yahoo/>
         </div>
+        
     )
 }
 
