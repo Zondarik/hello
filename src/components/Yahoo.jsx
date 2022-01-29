@@ -20,15 +20,15 @@ function Yahoo() {
             //mode: 'no-cors',
             method: 'GET',
         })
-        
         .then(response => response.json("response"))
-        .then(data => {console.log(data)})
+        .then(data => {console.log("data: "+ JSON.stringify(data , null , 2))})
         .catch(error => console.error(error))
+        
     })
 
     return (
         <div>
-
+            <h1>{}</h1>
         </div>
     )      
 }
