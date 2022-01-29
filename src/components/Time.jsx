@@ -6,7 +6,7 @@ function Time() {
 
     const time = curtrentMoment.format("HH:mm:ss"); 
     const date = curtrentMoment.format("DD.MM.YYYY");
-
+    
     function updateMoment() {
         changeCurrentMoment(moment())
     }
