@@ -5,32 +5,42 @@ import { useEffect, useState } from "react";
 function Yahoo() {
 
     const url = 'https://query1.finance.yahoo.com/v10/finance/quoteSummary/GOOG?modules=price'
+    this.state = {
+        error: null,
+        isLoaded,
+        items: []
+    };
     
+
     useEffect(()=>{
         
-        // fetch('https://api.github.com/orgs/nodejs')
-        // .then(response => response.json("response"))
-        // .then(data => {
-        // console.log(data) // Prints result from `response.json()` in getRequest
-        // })
-        // .catch(error => console.error(error))
-        
-
-        fetch('https://api.github.com/orgs/nodejs', {
-            //mode: 'no-cors',
-            method: 'GET',
-        })
+        fetch('https://query1.finance.yahoo.com/v10/finance/quoteSummary/GOOG?modules=price')
         .then(response => response.json("response"))
-        .then(data => {console.log("data: "+ JSON.stringify(data , null , 2))})
-        .catch(error => console.error(error))
-        
-    })
+        .then(
+            (result) => {
+                this.setState({
+                    isLoaded: true,
+                    items: result.quoteSummary
+                });
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            }
+        )
 
     return (
-        <div>
-            <h1>{}</h1>
-        </div>
+    <ul>{items.map(item =>(
+            <li key={item.name}>
+                {item.price}
+            </li>
+        ))}
+    </ul>
+            
+        
     )      
 }
 
-export default Yahoo;
+export default Yahoo
